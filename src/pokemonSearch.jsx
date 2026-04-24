@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+// Importamos el archivo CSS
+import './pokemonSearch.css';
 
 const PokemonSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [pokemon, setPokemon] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
   const handleSearch = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     
     if (!searchTerm.trim()) return;
 
@@ -27,51 +30,48 @@ const PokemonSearch = () => {
         name: data.name,
         image: data.sprites.other['official-artwork'].front_default || data.sprites.front_default,
         types: data.types.map((typeInfo) => typeInfo.type.name),
-        weight: data.weight / 10, 
-        height: data.height / 10 
+        weight: data.weight / 10,
+        height: data.height / 10
       });
     } catch (err) {
-      setError('¡Ups! No pudimos encontrar ese Pokémon. Revisa el nombre e intenta de nuevo.');
+      setError('No existe ese pokemon');
     } finally {
       setLoading(false); 
     }
   };
 
   return (
-    <div style={styles.container}>
-      <h2>Buscador de Pokémon 🔴⚪</h2>
+    <div className="pokemon-container">
+      <h2>Buscador de Pokémon</h2>
       
-      {}
-      <form onSubmit={handleSearch} style={styles.form}>
+      <form onSubmit={handleSearch} className="pokemon-form">
         <input
           type="text"
           placeholder="Ej. Pikachu, Charizard, 150..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          style={styles.input}
+          className="pokemon-input"
         />
-        <button type="submit" style={styles.button} disabled={loading}>
+        <button type="submit" className="pokemon-button" disabled={loading}>
           Buscar
         </button>
       </form>
 
-      {}
-      {loading && <p style={styles.message}>Buscando en la Pokédex... ⏳</p>}
+      {loading && <p className="pokemon-message">Buscando en la Pokédex</p>}
 
-      {}
-      {error && <p style={{ ...styles.message, color: 'red' }}>{error} ❌</p>}
+      {/* Usamos una clase específica para el error */}
+      {error && <p className="pokemon-error">{error} </p>}
 
-      {}
       {pokemon && !loading && !error && (
-        <div style={styles.card}>
-          <h3 style={styles.pokemonName}>{pokemon.name.toUpperCase()}</h3>
+        <div className="pokemon-card">
+          <h3 className="pokemon-name">{pokemon.name.toUpperCase()}</h3>
           <img 
             src={pokemon.image} 
             alt={`Imagen de ${pokemon.name}`} 
-            style={styles.image}
+            className="pokemon-image"
           />
           
-          <div style={styles.info}>
+          <div className="pokemon-info">
             <p><strong>Tipo(s):</strong> {pokemon.types.join(', ')}</p>
             <p><strong>Peso:</strong> {pokemon.weight} kg</p>
             <p><strong>Altura:</strong> {pokemon.height} m</p>
@@ -80,67 +80,6 @@ const PokemonSearch = () => {
       )}
     </div>
   );
-};
-
-
-const styles = {
-  container: {
-    fontFamily: 'Arial, sans-serif',
-    maxWidth: '400px',
-    margin: '40px auto',
-    textAlign: 'center',
-    padding: '20px',
-    border: '1px solid #ddd',
-    borderRadius: '10px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
-  },
-  form: {
-    display: 'flex',
-    gap: '10px',
-    marginBottom: '20px'
-  },
-  input: {
-    flex: 1,
-    padding: '10px',
-    borderRadius: '5px',
-    border: '1px solid #ccc'
-  },
-  button: {
-    padding: '10px 15px',
-    backgroundColor: '#ffcb05', // Amarillo Pokémon
-    color: '#3b4cca', // Azul Pokémon
-    border: 'none',
-    borderRadius: '5px',
-    fontWeight: 'bold',
-    cursor: 'pointer'
-  },
-  message: {
-    fontWeight: 'bold',
-    margin: '20px 0'
-  },
-  card: {
-    backgroundColor: '#f9f9f9',
-    padding: '20px',
-    borderRadius: '10px',
-    border: '1px solid #eee'
-  },
-  pokemonName: {
-    margin: '0 0 15px 0',
-    letterSpacing: '2px'
-  },
-  image: {
-    width: '150px',
-    height: '150px',
-    objectFit: 'contain'
-  },
-  info: {
-    textAlign: 'left',
-    marginTop: '15px',
-    backgroundColor: '#fff',
-    padding: '10px',
-    borderRadius: '5px',
-    border: '1px solid #ddd'
-  }
 };
 
 export default PokemonSearch;

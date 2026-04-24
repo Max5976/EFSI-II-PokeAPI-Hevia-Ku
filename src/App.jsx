@@ -7,7 +7,7 @@ import './App.css'
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
-  const [name, setName] = useState("Bulbasaur");
+  const [name, setName] = useState(null);
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon/" + name)
@@ -25,15 +25,7 @@ function App() {
           <img src={pokemon.sprites.front_default} alt={pokemon.name} />
         </div>
         )}
-
-        <input
-          type="text"
-          placeholder="Ej: pikachu"
-          value={name}
-          onChange={(e) => setName(e.target.value.toLowerCase())}
-        />
-      </div>
-      
+      </div>  
       <div className="App">
       {}
       <PokemonSearch />

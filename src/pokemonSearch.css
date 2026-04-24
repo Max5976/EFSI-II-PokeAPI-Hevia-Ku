@@ -1,0 +1,78 @@
+
+.pokemon-container {
+  font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin: 40px auto;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.pokemon-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.pokemon-button {
+  padding: 10px 15px;
+  background-color: #ffcb05; 
+  color: #3b4cca;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pokemon-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pokemon-message {
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.pokemon-error {
+  font-weight: bold;
+  margin: 20px 0;
+  color: red;
+}
+
+.pokemon-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.pokemon-name {
+  margin: 0 0 15px 0;
+  letter-spacing: 2px;
+}
+
+.pokemon-image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.pokemon-info {
+  text-align: left;
+  margin-top: 15px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
