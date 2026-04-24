@@ -1,13 +1,12 @@
 
-.pokemon-container {
-  font-family: Arial, sans-serif;
+
+.pokemon-container {    
+  font-family: sans-serif;
   max-width: 400px;
   margin: 40px auto;
   text-align: center;
   padding: 20px;
-  border: 1px solid #ddd;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .pokemon-form {
@@ -25,8 +24,8 @@
 
 .pokemon-button {
   padding: 10px 15px;
-  background-color: #ffcb05; 
-  color: #3b4cca;
+  background-color: #ff0000; 
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   font-weight: bold;
@@ -54,7 +53,7 @@
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #eee;
+
 }
 
 .pokemon-name {
@@ -74,5 +73,5 @@
   background-color: #fff;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ddd;
+
 }
