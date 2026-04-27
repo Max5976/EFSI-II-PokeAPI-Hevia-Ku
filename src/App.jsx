@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react'
-import PokemonSearch from './pokemonSearch.jsx';
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import PokemonSearch from './pokemonSearch.jsx'
 import './App.css'
 
 function App() {

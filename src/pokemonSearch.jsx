@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// Importamos el archivo CSS
 import './pokemonSearch.css';
 
 const PokemonSearch = () => {
@@ -59,7 +58,7 @@ const PokemonSearch = () => {
 
       {loading && <p className="pokemon-message">Buscando en la Pokédex</p>}
 
-      {/* Usamos una clase específica para el error */}
+      {}
       {error && <p className="pokemon-error">{error} </p>}
 
       {pokemon && !loading && !error && (
