@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import PokemonSearch from './pokemonSearch.jsx'
-import './App.css'
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
